@@ -7,7 +7,7 @@ var deciseconds = 0;
 var startButton = document.querySelector('#start');
 var timerDiv = document.querySelector('#timer');
 
-// Color changer
+// Defining function to assign random colors 
 function colorChanger() { 
          var red = Math.round(Math.random() * 255);
          var green = Math.round(Math.random() * 255);
@@ -15,10 +15,11 @@ function colorChanger() {
          timerDiv.style.color = `rgb(${red}, ${green}, ${blue})`;
 };
 
-// Declare timer variable
+// Declare timer and auto reset variables
 var timer;
+var fifteenSecs;
 
-// Timer function
+// Defining function to increment the timer
 function timerRunning() {
     deciseconds++;
     timerDiv.innerHTML = `${minutes}:${seconds}:${deciseconds}` + '0';
@@ -35,7 +36,7 @@ function timerRunning() {
     }
 };
 
-// Reset timer function
+// Defining function to reset the timer 
 function timerReset() {
     minutes = 0;
     seconds = 0;
@@ -55,7 +56,7 @@ startButton.addEventListener("click", function(e) {
     else if (e.target.innerHTML === 'Pause') {
         e.target.innerHTML = 'Resume';
         clearInterval(timer);
-        fifteenSecs = setTimeout(timerReset, 3000)
+        fifteenSecs = setTimeout(timerReset, 15000)
     } 
 
     else if (e.target.innerHTML = 'Resume') {
